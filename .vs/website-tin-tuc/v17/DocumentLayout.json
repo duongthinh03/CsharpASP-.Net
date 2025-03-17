@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\DuongQuangThinh\\project\\C#\\ASP .Net\\website-tin-tuc\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|D:\\DuongQuangThinh\\project\\C#\\ASP .Net\\website-tin-tuc\\website-tin-tuc\\home.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|solutionrelative:website-tin-tuc\\home.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.Master",
+              "DocumentMoniker": "D:\\DuongQuangThinh\\project\\C#\\ASP .Net\\website-tin-tuc\\website-tin-tuc\\Home.Master",
+              "RelativeDocumentMoniker": "website-tin-tuc\\Home.Master",
+              "ToolTip": "D:\\DuongQuangThinh\\project\\C#\\ASP .Net\\website-tin-tuc\\website-tin-tuc\\Home.Master",
+              "RelativeToolTip": "website-tin-tuc\\Home.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-03-16T08:41:39.397Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
