@@ -1,3 +1,26 @@
+CREATE DATABASE Blog
+
+use Blog
+
+CREATE TABLE BanTin (
+    IDBanTin INT PRIMARY KEY IDENTITY(1,1),
+    tenBanTin NVARCHAR(100)
+);
+CREATE TABLE ChiTiet (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    TieuDe NVARCHAR(255),
+    noiDung NVARCHAR(MAX),
+    lanXem INT,
+    ngayDang DATETIME,
+    IDBanTin INT,
+    FOREIGN KEY (IDBanTin) REFERENCES BanTin(IDBanTin)
+);
+CREATE TABLE DangNhap (
+    IDName INT PRIMARY KEY IDENTITY(1,1),
+    userName NVARCHAR(50),
+    passWord NVARCHAR(50)
+);
+
 --lay tat ca Ban tin
 CREATE PROC BanTin_SelectAll
 AS

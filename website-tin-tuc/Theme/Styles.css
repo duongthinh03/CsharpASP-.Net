@@ -45,7 +45,7 @@
     width: 1000px;
     margin: 30px auto;
 }
-#rightcontent{
+#rightcontent {
     float: right;
     width: 330px;
     background: #fff;
@@ -55,6 +55,52 @@
     margin-bottom: 10px;
     border-radius: 7px;
 }
+#rightcontent h1 {
+    margin: 0;
+    padding: 5px 10px;
+    font-family: 'Times New Roman';
+    font-size: 16px;
+    background: #000;
+    color: #fff000;
+}
+#ndright {
+    padding: 10px 15px;
+    text-align: justify;
+}
+
+#ndright ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#ndright ul li {
+    padding: 6px 0;
+    margin-bottom: 10px;
+}
+
+#ndright ul li a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+}
+
+#ndright ul li a:hover {
+    color: #cc0000;
+    text-decoration: underline;
+}
+#ndright ul li img {
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+    width: 100%;     /* chiếm toàn bộ chiều ngang */
+    height: 100px;   /* hoặc 120px tuỳ ý */
+    object-fit: cover;
+    border-radius: 6px;
+}
+#ndright ul li img:hover {
+    transform: scale(1.05);
+}
+
 #content {
     float: left;
     width: 650px;

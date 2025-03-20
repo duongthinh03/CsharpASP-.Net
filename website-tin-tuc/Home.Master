@@ -40,7 +40,12 @@
                <div id="rightcontent">
                    <h1>Bạn nên quan tâm</h1>
                    <div id="ndright">
-                       Nội dung bên phải.
+                       <ul>
+                          <li><a href="https://visualstudio.microsoft.com/"><img src="images/visualstudio.png" alt="Visual Studio"/></a></li>
+                          <li><a href="https://vnexpress.net"><img src="images/vnexpress.png" alt="VnExpress" ></a></li>
+                          <li><a href="https://thethao.tuoitre.vn"><img src="images/tuoitre-sports.png" alt="Tuổi Trẻ Thể thao"></a></li>
+                          <li><a href="https://www.techz.vn/"><img src="images/techz.png" alt="Techz" ></a></li>
+                    </ul>
                    </div>
                </div>
                <div id="content">
@@ -55,6 +60,7 @@
             <div id="ndfooter">
                 CopyRight: Dương Quang Thịnh. <br />
                 Liên hệ trực tuyến qua Email: dqthinhdq03@gmail.com
+                Với Hotline: 0869641679
             </div>
         </div>
     </form>
