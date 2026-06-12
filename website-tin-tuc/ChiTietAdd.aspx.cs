@@ -47,7 +47,21 @@ namespace website_tin_tuc
             string connStr = ConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString;
             BlogDataContext dt = new BlogDataContext(connStr);
             dt.ChiTiet_Insert(txtTieuDe.Text.Trim(), txtNoiDung.Text, DateTime.Now, idBanTin);
-            Response.Redirect("index.aspx");
+
+            txtTieuDe.Text = "";
+            txtNoiDung.Text = "";
+            lblThongBao.Text = "Đã thêm bài viết. Bạn có thể nhập tiếp bài mới.";
+            FocusTitleBox();
+        }
+
+        private void FocusTitleBox()
+        {
+            txtTieuDe.Focus();
+            ClientScript.RegisterStartupScript(
+                GetType(),
+                "focusTitle",
+                "window.setTimeout(function(){var el=document.getElementById('" + txtTieuDe.ClientID + "');if(el){el.focus();}},0);",
+                true);
         }
     }
 }

@@ -4,7 +4,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <title>Blog ASP .Net</title>
-    <link href="theme\Styles.css" rel="stylesheet" />
+    <link href="theme/Styles.css?v=20260612-11" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -32,29 +32,66 @@
                         else
                         {
                         %>
-                            <li><a href="logout.aspx">Thoát</a> </li>
+                            <li class="menu-dropdown">
+                                <a href="#">Tài khoản</a>
+                                <ul class="submenu">
+                                    <li><a href="ChangePassword.aspx">Đổi mật khẩu</a></li>
                     <%
                             if (isAdmin)
                             {
                     %>
-                            <li><a href="AdminPosts.aspx">Quản lý</a> </li>
-                            <li><a href="ChiTietAdd.aspx">Thêm mới</a> </li>
+                                    <li><a href="AdminPosts.aspx">Quản lý bài viết</a></li>
+                                    <li><a href="ChiTietAdd.aspx">Thêm bài viết</a></li>
                     <%
                             }
                     %>
+                                    <li><a href="logout.aspx">Thoát</a></li>
+                                </ul>
+                            </li>
                     <%} %>
                 </ul>
             </div>
            </div>
            <div id="maincontent">
                <div id="rightcontent">
-                   <h1>Bạn nên quan tâm</h1>
+                   <h1>Tài nguyên học tập</h1>
                    <div id="ndright">
-                       <ul>
-                          <li><a href="https://visualstudio.microsoft.com/"><img src="images/visualstudio.png" alt="Visual Studio"/></a></li>
-                          <li><a href="https://vnexpress.net"><img src="images/vnexpress.png" alt="VnExpress" ></a></li>
-                          <li><a href="https://thethao.tuoitre.vn"><img src="images/tuoitre-sports.png" alt="Tuổi Trẻ Thể thao"></a></li>
-                          <li><a href="https://www.techz.vn/"><img src="images/techz.png" alt="Techz" ></a></li>
+                       <ul class="resource-list">
+                          <li>
+                              <a href="https://learn.microsoft.com/aspnet/core/" target="_blank" rel="noopener">
+                                  <span class="resource-index">01</span>
+                                  <span class="resource-title">ASP.NET Core Docs</span>
+                                  <span class="resource-desc">Tài liệu chính thức về ASP.NET Core, Web API và Razor.</span>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://developer.mozilla.org/" target="_blank" rel="noopener">
+                                  <span class="resource-index">02</span>
+                                  <span class="resource-title">MDN Web Docs</span>
+                                  <span class="resource-desc">HTML, CSS, JavaScript và kiến thức nền tảng web.</span>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://learn.microsoft.com/sql/" target="_blank" rel="noopener">
+                                  <span class="resource-index">03</span>
+                                  <span class="resource-title">SQL Server Docs</span>
+                                  <span class="resource-desc">Truy vấn, tối ưu database và quản trị SQL Server.</span>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://docs.docker.com/" target="_blank" rel="noopener">
+                                  <span class="resource-index">04</span>
+                                  <span class="resource-title">Docker Docs</span>
+                                  <span class="resource-desc">Container, image, compose và triển khai ứng dụng.</span>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://roadmap.sh/" target="_blank" rel="noopener">
+                                  <span class="resource-index">05</span>
+                                  <span class="resource-title">roadmap.sh</span>
+                                  <span class="resource-desc">Lộ trình học Web, Backend, DevOps và nhiều hướng công nghệ khác.</span>
+                              </a>
+                          </li>
                     </ul>
                    </div>
                </div>

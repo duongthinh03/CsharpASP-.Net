@@ -80,6 +80,7 @@
     <Content Include="AdminPosts.aspx" />
     <Content Include="BanTinManage.aspx" />
     <Content Include="bantin.aspx" />
+    <Content Include="ChangePassword.aspx" />
     <Content Include="chitiet.aspx" />
     <Content Include="ChiTietAdd.aspx" />
     <Content Include="ChiTietEdit.aspx" />
@@ -787,6 +788,13 @@
     </Compile>
     <Compile Include="bantin.aspx.designer.cs">
       <DependentUpon>bantin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Blog.designer.cs">
       <AutoGen>True</AutoGen>

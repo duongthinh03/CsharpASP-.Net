@@ -55,8 +55,6 @@ namespace website_tin_tuc
                 return;
             }
 
-            post.TieuDe = txtTieuDe.Text.Trim();
-            post.noiDung = txtNoiDung.Text;
             int idBanTin = 0;
             if (!int.TryParse(drBanTin.SelectedValue, out idBanTin))
             {
@@ -64,8 +62,12 @@ namespace website_tin_tuc
                 return;
             }
 
-            post.IDBanTin = idBanTin;
-            dt.SubmitChanges();
+            dt.ExecuteCommand(
+                "EXEC dbo.ChiTiet_Update @p0, @p1, @p2, @p3",
+                txtTieuDe.Text.Trim(),
+                txtNoiDung.Text,
+                PostId,
+                idBanTin);
 
             Response.Redirect("AdminPosts.aspx");
         }

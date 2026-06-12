@@ -4,6 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="box-title">Tin mới nhất</h1>
         <div id="ndcontent">
+            <div class="search-panel">
+                <asp:TextBox ID="txtSearch" runat="server" CssClass="search-input" placeholder="Tìm bài viết..."></asp:TextBox>
+                <asp:Button ID="btnSearch" runat="server" CssClass="primary-button" Text="Tìm kiếm" OnClick="btnSearch_Click" />
+            </div>
             <ul>
             <asp:Repeater ID="rpChiTiet" runat="server">
                 <ItemTemplate>
@@ -20,5 +24,6 @@
                 </FooterTemplate>
             </asp:Repeater>
             </ul>
+            <asp:Literal ID="litPager" runat="server"></asp:Literal>
         </div>
 </asp:Content>

@@ -8,6 +8,10 @@
         </ItemTemplate>
     </asp:Repeater>
     <div id="ndcontent">
+        <div class="search-panel">
+            <asp:TextBox ID="txtSearch" runat="server" CssClass="search-input" placeholder="Tìm trong danh mục này..."></asp:TextBox>
+            <asp:Button ID="btnSearch" runat="server" CssClass="primary-button" Text="Tìm kiếm" OnClick="btnSearch_Click" />
+        </div>
         <ul>
             <asp:Repeater ID="rpChiTiet" runat="server">
                 <ItemTemplate>
@@ -24,6 +28,7 @@
                 </FooterTemplate>
             </asp:Repeater>
         </ul>
+        <asp:Literal ID="litPager" runat="server"></asp:Literal>
 
     </div>
 </asp:Content>
