@@ -332,6 +332,46 @@ a {
     color: #64748b;
 }
 
+.detail-post {
+    padding-bottom: 18px;
+}
+
+.detail-title {
+    margin: 0 0 10px;
+    color: #0b3f6d;
+    font-size: 24px;
+    line-height: 1.35;
+}
+
+.detail-meta {
+    display: flex;
+    justify-content: flex-start;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.detail-body {
+    color: #334155;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.detail-body p {
+    color: #334155 !important;
+}
+
+.related-title {
+    margin: 18px 0 12px;
+    padding-top: 18px;
+    color: #101827;
+    border-top: 1px solid #e2e8f0;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
 .editor-form {
     padding: 26px 28px 30px !important;
 }

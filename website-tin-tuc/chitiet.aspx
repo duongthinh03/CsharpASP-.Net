@@ -10,23 +10,30 @@
          <div id="ndcontent">
              <asp:Repeater ID="rpChiTiet" runat="server">
                  <ItemTemplate>
-                     <h3 style="color:red"><%# Eval("tieuDe") %></h3>
-                     <p style="text-align:right">
-                         Cập nhật: <%# Eval("ngayDang") %><br />
-                         Số lần xem:<%# Eval("lanXem") %>
-                     </p>
-                     <%# Eval("noiDung") %>
+                     <article class="detail-post">
+                         <h2 class="detail-title"><%# Eval("TieuDe") %></h2>
+                         <div class="detail-meta">
+                             <span>Cập nhật: <%# Eval("ngayDang", "{0:dd/MM/yyyy HH:mm}") %></span>
+                             <span>Lượt xem: <%# Eval("lanXem") %></span>
+                         </div>
+                         <div class="detail-body">
+                             <%# Eval("noiDung") %>
+                         </div>
+                     </article>
                  </ItemTemplate>
                  <FooterTemplate>
                      <asp:Label ID="lblEmpty" runat="server" CssClass="empty-state" Text="Không tìm thấy bài viết." Visible='<%# rpChiTiet.Items.Count == 0 %>'></asp:Label>
                  </FooterTemplate>
              </asp:Repeater>
-             <h3 style="color:blue">Xem thêm bản tin khác: </h3>
+             <h2 class="related-title">Bài viết liên quan</h2>
                  <ul>
                      <asp:Repeater ID="rpRanDom" runat="server">
                          <ItemTemplate>
                              <li>
-                                 <a href="chitiet.aspx?idbantin=<%# Eval("IDBanTin") %>&id=<%# Eval("ID") %>"><%# Eval("TieuDe") %></a>
+                                 <a href="chitiet.aspx?idbantin=<%# Eval("IDBanTin") %>&id=<%# Eval("ID") %>">
+                                     <span class="post-title"><%# Eval("TieuDe") %></span>
+                                     <span class="post-meta">Ngày đăng: <%# Eval("ngayDang", "{0:dd/MM/yyyy}") %> | Lượt xem: <%# Eval("lanXem") %></span>
+                                 </a>
                              </li>
                          </ItemTemplate>
                          <FooterTemplate>

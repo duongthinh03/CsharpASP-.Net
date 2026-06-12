@@ -16,42 +16,49 @@ namespace website_tin_tuc
             BlogDataContext dt = new BlogDataContext(connStr);
 
 			int? so = null;
-			//int id = Convert.ToInt32(Request["ID"]);
-            //int idbanTin = Convert.ToInt32(Request["IDBanTin"]); 
-            int idbanTin = 0;
             int id = 0;
-            if (Request["ID"] != null && int.TryParse(Request["ID"].ToString(), out id))
+            if (!int.TryParse(Request["ID"], out id))
             {
-                // Thành công, id đã được gán
-            }
-            else
-            {
-                Response.Redirect("index.aspx"); // Chuyển hướng nếu ID không hợp lệ
+                Response.Redirect("index.aspx");
                 return;
             }
-            if (Request["IDBanTin"] != null && int.TryParse(Request["IDBanTin"].ToString(), out idbanTin))
+
+            ChiTiet post = dt.ChiTiets.FirstOrDefault(x => x.ID == id);
+            if (post == null)
             {
-                // hợp lệ, đã gán vào idbanTin
-            }
-            else
-            {
-                idbanTin = 0; // hoặc giá trị mặc định khác tùy bạn
+                Response.Redirect("index.aspx");
+                return;
             }
 
-            // Lấy dữ liệu trong sql server:
+            int idbanTin = post.IDBanTin ?? 0;
             dt.ChiTiet_LanXem(id, ref so);
             if (so == null)
             {
                 so = 0;
             }
             int gt = Convert.ToInt32(so) + 1;
-            // Tăng số lượt xem
             dt.ChiTiet_SLX(gt, id);
+            post.lanXem = gt;
+
 			rpBanTin.DataSource = dt.BanTin_SelectID(idbanTin);
 			rpBanTin.DataBind();
-			rpChiTiet.DataSource = dt.ChiTiet_SelectID(id);
+
+			rpChiTiet.DataSource = new[] { post };
 			rpChiTiet.DataBind();
-            var randomItems = dt.ChiTiet_SelectRandom(idbanTin).Where(x => x.ID != id).ToList();
+
+            var randomItems = dt.ChiTiets
+                .Where(x => x.IDBanTin == idbanTin && x.ID != id)
+                .OrderByDescending(x => x.ngayDang)
+                .Take(5)
+                .Select(x => new
+                {
+                    x.ID,
+                    x.IDBanTin,
+                    x.TieuDe,
+                    x.ngayDang,
+                    x.lanXem
+                })
+                .ToList();
             rpRanDom.DataSource = randomItems;
             rpRanDom.DataBind();
         }
