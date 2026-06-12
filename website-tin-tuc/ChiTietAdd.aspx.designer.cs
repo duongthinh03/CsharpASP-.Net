@@ -42,6 +42,15 @@ namespace website_tin_tuc
         protected global::CKEditor.NET.CKEditorControl txtNoiDung;
 
         /// <summary>
+        /// lblThongBao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblThongBao;
+
+        /// <summary>
         /// btnInsert control.
         /// </summary>
         /// <remarks>

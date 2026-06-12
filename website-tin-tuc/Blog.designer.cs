@@ -33,6 +33,9 @@ namespace website_tin_tuc
     partial void InsertBanTin(BanTin instance);
     partial void UpdateBanTin(BanTin instance);
     partial void DeleteBanTin(BanTin instance);
+    partial void InsertDangNhap(DangNhap instance);
+    partial void UpdateDangNhap(DangNhap instance);
+    partial void DeleteDangNhap(DangNhap instance);
     partial void InsertChiTiet(ChiTiet instance);
     partial void UpdateChiTiet(ChiTiet instance);
     partial void DeleteChiTiet(ChiTiet instance);
@@ -62,19 +65,19 @@ namespace website_tin_tuc
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<DangNhap> DangNhaps
-		{
-			get
-			{
-				return this.GetTable<DangNhap>();
-			}
-		}
-		
 		public System.Data.Linq.Table<BanTin> BanTins
 		{
 			get
 			{
 				return this.GetTable<BanTin>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DangNhap> DangNhaps
+		{
+			get
+			{
+				return this.GetTable<DangNhap>();
 			}
 		}
 		
@@ -84,6 +87,13 @@ namespace website_tin_tuc
 			{
 				return this.GetTable<ChiTiet>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DangNhap_Update")]
+		public int DangNhap_Update([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDName", DbType="Int")] System.Nullable<int> iDName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string passWord)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDName, userName, passWord);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BanTin_Delete")]
@@ -135,6 +145,14 @@ namespace website_tin_tuc
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ChiTiet_LanXem")]
+		public int ChiTiet_LanXem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> lanXem)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, lanXem);
+			lanXem = ((System.Nullable<int>)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ChiTiet_SelectAll")]
 		public ISingleResult<ChiTiet_SelectAllResult> ChiTiet_SelectAll()
 		{
@@ -177,13 +195,6 @@ namespace website_tin_tuc
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DangNhap_Update")]
-		public int DangNhap_Update([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDName", DbType="Int")] System.Nullable<int> iDName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string passWord)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDName, userName, passWord);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ChiTiet_Update")]
 		public int ChiTiet_Update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string tieuDe, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string noiDung, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
 		{
@@ -217,77 +228,6 @@ namespace website_tin_tuc
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<DangNhap_SelectAllResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ChiTiet_LanXem")]
-		public int ChiTiet_LanXem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> lanXem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, lanXem);
-			lanXem = ((System.Nullable<int>)(result.GetParameterValue(1)));
-			return ((int)(result.ReturnValue));
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DangNhap")]
-	public partial class DangNhap
-	{
-		
-		private int _IDName;
-		
-		private string _userName;
-		
-		private string _passWord;
-		
-		public DangNhap()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDName", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int IDName
-		{
-			get
-			{
-				return this._IDName;
-			}
-			set
-			{
-				if ((this._IDName != value))
-				{
-					this._IDName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="NVarChar(50)")]
-		public string userName
-		{
-			get
-			{
-				return this._userName;
-			}
-			set
-			{
-				if ((this._userName != value))
-				{
-					this._userName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_passWord", DbType="NVarChar(50)")]
-		public string passWord
-		{
-			get
-			{
-				return this._passWord;
-			}
-			set
-			{
-				if ((this._passWord != value))
-				{
-					this._passWord = value;
-				}
-			}
 		}
 	}
 	
@@ -339,7 +279,7 @@ namespace website_tin_tuc
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenBanTin", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenBanTin", DbType="NVarChar(100)")]
 		public string tenBanTin
 		{
 			get
@@ -402,6 +342,116 @@ namespace website_tin_tuc
 		{
 			this.SendPropertyChanging();
 			entity.BanTin = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DangNhap")]
+	public partial class DangNhap : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDName;
+		
+		private string _userName;
+		
+		private string _passWord;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDNameChanging(int value);
+    partial void OnIDNameChanged();
+    partial void OnuserNameChanging(string value);
+    partial void OnuserNameChanged();
+    partial void OnpassWordChanging(string value);
+    partial void OnpassWordChanged();
+    #endregion
+		
+		public DangNhap()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDName", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDName
+		{
+			get
+			{
+				return this._IDName;
+			}
+			set
+			{
+				if ((this._IDName != value))
+				{
+					this.OnIDNameChanging(value);
+					this.SendPropertyChanging();
+					this._IDName = value;
+					this.SendPropertyChanged("IDName");
+					this.OnIDNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="NVarChar(50)")]
+		public string userName
+		{
+			get
+			{
+				return this._userName;
+			}
+			set
+			{
+				if ((this._userName != value))
+				{
+					this.OnuserNameChanging(value);
+					this.SendPropertyChanging();
+					this._userName = value;
+					this.SendPropertyChanged("userName");
+					this.OnuserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_passWord", DbType="NVarChar(50)")]
+		public string passWord
+		{
+			get
+			{
+				return this._passWord;
+			}
+			set
+			{
+				if ((this._passWord != value))
+				{
+					this.OnpassWordChanging(value);
+					this.SendPropertyChanging();
+					this._passWord = value;
+					this.SendPropertyChanged("passWord");
+					this.OnpassWordChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -469,7 +519,7 @@ namespace website_tin_tuc
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(255)")]
 		public string TieuDe
 		{
 			get
@@ -655,7 +705,7 @@ namespace website_tin_tuc
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenBanTin", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenBanTin", DbType="NVarChar(100)")]
 		public string tenBanTin
 		{
 			get
@@ -699,7 +749,7 @@ namespace website_tin_tuc
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenBanTin", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenBanTin", DbType="NVarChar(100)")]
 		public string tenBanTin
 		{
 			get
@@ -751,7 +801,7 @@ namespace website_tin_tuc
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(255)")]
 		public string TieuDe
 		{
 			get
@@ -867,7 +917,7 @@ namespace website_tin_tuc
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(255)")]
 		public string TieuDe
 		{
 			get
@@ -983,7 +1033,7 @@ namespace website_tin_tuc
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(255)")]
 		public string TieuDe
 		{
 			get
@@ -1099,7 +1149,7 @@ namespace website_tin_tuc
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(255)")]
 		public string TieuDe
 		{
 			get
@@ -1215,7 +1265,7 @@ namespace website_tin_tuc
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieuDe", DbType="NVarChar(255)")]
 		public string TieuDe
 		{
 			get

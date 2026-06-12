@@ -1,8 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="website_tin_tuc.Home" %>
-<%: ResolveUrl("~/Styles.css") %>
 <!DOCTYPE html>
-<html xmls="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <meta charset="utf-8" />
     <title>Blog ASP .Net</title>
     <link href="theme\Styles.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -13,14 +13,16 @@
         <div id="menutop">
             <div id="menu">
                 <ul>
-                    <li><a href="\">Trang chủ</a> </li>
+                    <li><a href="index.aspx">Trang chủ</a> </li>
                     <asp:Repeater ID="rpBanTin" runat="server">
                         <ItemTemplate>
                             <li><a href="bantin.aspx?idbantin=<%# Eval("IDBanTin") %>"><%# Eval("tenBanTin") %></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                     <%
-                        if ((Boolean)Session["admin"] == false)
+                        bool isAdmin = Session["admin"] != null && (bool)Session["admin"];
+                        bool isLoggedIn = Session["isLoggedIn"] != null && (bool)Session["isLoggedIn"];
+                        if (!isLoggedIn)
                         {
                         %>
                             <li><a href="login.aspx">Đăng nhập</a> </li>
@@ -31,7 +33,15 @@
                         {
                         %>
                             <li><a href="logout.aspx">Thoát</a> </li>
+                    <%
+                            if (isAdmin)
+                            {
+                    %>
+                            <li><a href="AdminPosts.aspx">Quản lý</a> </li>
                             <li><a href="ChiTietAdd.aspx">Thêm mới</a> </li>
+                    <%
+                            }
+                    %>
                     <%} %>
                 </ul>
             </div>

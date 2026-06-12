@@ -17,7 +17,7 @@
         // ... where Session[ "IsAuthorized" ] is set to "true" as soon as the
         // user logs on your system.
 
-        return true;
+        return website_tin_tuc.SiteSecurity.IsAdmin();
     }
 
     /**

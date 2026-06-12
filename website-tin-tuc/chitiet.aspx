@@ -17,15 +17,21 @@
                      </p>
                      <%# Eval("noiDung") %>
                  </ItemTemplate>
+                 <FooterTemplate>
+                     <asp:Label ID="lblEmpty" runat="server" CssClass="empty-state" Text="Không tìm thấy bài viết." Visible='<%# rpChiTiet.Items.Count == 0 %>'></asp:Label>
+                 </FooterTemplate>
              </asp:Repeater>
              <h3 style="color:blue">Xem thêm bản tin khác: </h3>
                  <ul>
                      <asp:Repeater ID="rpRanDom" runat="server">
                          <ItemTemplate>
                              <li>
-                                 <a href="chitiet.aspx?idbantin=<%# Eval("IDBanTin") %>>&id=<%# Eval("ID") %>"><%# Eval("TieuDe") %></a>
+                                 <a href="chitiet.aspx?idbantin=<%# Eval("IDBanTin") %>&id=<%# Eval("ID") %>"><%# Eval("TieuDe") %></a>
                              </li>
                          </ItemTemplate>
+                         <FooterTemplate>
+                             <asp:Label ID="lblEmpty" runat="server" CssClass="empty-state" Text="Chưa có bài viết liên quan." Visible='<%# rpRanDom.Items.Count == 0 %>'></asp:Label>
+                         </FooterTemplate>
                      </asp:Repeater>
                  </ul>
          </div>

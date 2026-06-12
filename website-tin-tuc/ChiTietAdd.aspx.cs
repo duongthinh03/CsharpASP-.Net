@@ -12,6 +12,12 @@ namespace website_tin_tuc
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+            if (!SiteSecurity.IsAdmin())
+            {
+                Response.Redirect("login.aspx");
+                return;
+            }
+
             string connStr = ConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString;
             BlogDataContext dt = new BlogDataContext(connStr);
 			if (!IsPostBack)
@@ -25,9 +31,22 @@ namespace website_tin_tuc
 
         protected void btnInsert_Click1(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtTieuDe.Text) || string.IsNullOrWhiteSpace(txtNoiDung.Text))
+            {
+                lblThongBao.Text = "Bạn cần nhập đầy đủ tiêu đề và nội dung.";
+                return;
+            }
+
+            int idBanTin = 0;
+            if (!int.TryParse(drBanTin.SelectedValue, out idBanTin))
+            {
+                lblThongBao.Text = "Bạn cần tạo danh mục trước khi thêm bài viết.";
+                return;
+            }
+
             string connStr = ConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString;
             BlogDataContext dt = new BlogDataContext(connStr);
-            dt.ChiTiet_Insert(txtTieuDe.Text, txtNoiDung.Text, DateTime.Now, Convert.ToInt32(drBanTin.SelectedValue));
+            dt.ChiTiet_Insert(txtTieuDe.Text.Trim(), txtNoiDung.Text, DateTime.Now, idBanTin);
             Response.Redirect("index.aspx");
         }
     }

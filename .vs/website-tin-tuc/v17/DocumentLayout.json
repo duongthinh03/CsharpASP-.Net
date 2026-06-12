@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ADMIN\\OneDrive\\M\u00E1y t\u00EDnh\\website-tin-tuc\\",
+  "WorkspaceRootPath": "D:\\DuongQuangThinh\\project\\C#\\WebForm -.Net\\website-tin-tuc\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\website-tin-tuc\\website-tin-tuc\\home.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "AbsoluteMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|d:\\duongquangthinh\\project\\c#\\webform -.net\\website-tin-tuc\\website-tin-tuc\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|solutionrelative:website-tin-tuc\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|D:\\DuongQuangThinh\\project\\C#\\WebForm -.Net\\website-tin-tuc\\website-tin-tuc\\home.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|solutionrelative:website-tin-tuc\\home.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|C:\\Users\\ADMIN\\OneDrive\\M\u00E1y t\u00EDnh\\website-tin-tuc\\website-tin-tuc\\theme\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|solutionrelative:website-tin-tuc\\theme\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|C:\\Users\\ADMIN\\OneDrive\\M\u00E1y t\u00EDnh\\website-tin-tuc\\website-tin-tuc\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|solutionrelative:website-tin-tuc\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|D:\\DuongQuangThinh\\project\\C#\\WebForm -.Net\\website-tin-tuc\\website-tin-tuc\\blog.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|",
+      "RelativeMoniker": "D:0:0:{B9AA3074-92A7-4DC1-8891-581DCE23B08C}|website-tin-tuc\\website-tin-tuc.csproj|solutionrelative:website-tin-tuc\\blog.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Styles.css",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\M\u00E1y t\u00EDnh\\website-tin-tuc\\website-tin-tuc\\Theme\\Styles.css",
-              "RelativeDocumentMoniker": "website-tin-tuc\\Theme\\Styles.css",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\M\u00E1y t\u00EDnh\\website-tin-tuc\\website-tin-tuc\\Theme\\Styles.css",
-              "RelativeToolTip": "website-tin-tuc\\Theme\\Styles.css",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAYwGEAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-03-20T18:49:51.862Z"
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\DuongQuangThinh\\project\\C#\\WebForm -.Net\\website-tin-tuc\\website-tin-tuc\\Web.config",
+              "RelativeDocumentMoniker": "website-tin-tuc\\Web.config",
+              "ToolTip": "D:\\DuongQuangThinh\\project\\C#\\WebForm -.Net\\website-tin-tuc\\website-tin-tuc\\Web.config",
+              "RelativeToolTip": "website-tin-tuc\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-09-27T19:47:58.138Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "index.aspx",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\M\u00E1y t\u00EDnh\\website-tin-tuc\\website-tin-tuc\\index.aspx",
-              "RelativeDocumentMoniker": "website-tin-tuc\\index.aspx",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\M\u00E1y t\u00EDnh\\website-tin-tuc\\website-tin-tuc\\index.aspx",
-              "RelativeToolTip": "website-tin-tuc\\index.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-03-20T18:37:38.589Z"
+              "Title": "Blog.dbml",
+              "DocumentMoniker": "D:\\DuongQuangThinh\\project\\C#\\WebForm -.Net\\website-tin-tuc\\website-tin-tuc\\Blog.dbml",
+              "RelativeDocumentMoniker": "website-tin-tuc\\Blog.dbml",
+              "ToolTip": "D:\\DuongQuangThinh\\project\\C#\\WebForm -.Net\\website-tin-tuc\\website-tin-tuc\\Blog.dbml",
+              "RelativeToolTip": "website-tin-tuc\\Blog.dbml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001722|",
+              "WhenOpened": "2025-09-27T19:44:39.99Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Home.Master",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\M\u00E1y t\u00EDnh\\website-tin-tuc\\website-tin-tuc\\Home.Master",
+              "DocumentMoniker": "D:\\DuongQuangThinh\\project\\C#\\WebForm -.Net\\website-tin-tuc\\website-tin-tuc\\Home.Master",
               "RelativeDocumentMoniker": "website-tin-tuc\\Home.Master",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\M\u00E1y t\u00EDnh\\website-tin-tuc\\website-tin-tuc\\Home.Master",
+              "ToolTip": "D:\\DuongQuangThinh\\project\\C#\\WebForm -.Net\\website-tin-tuc\\website-tin-tuc\\Home.Master",
               "RelativeToolTip": "website-tin-tuc\\Home.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-03-16T08:41:39.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T08:41:39.397Z"
             }
           ]
         }

@@ -46,7 +46,7 @@ BEGIN
 END
 GO
 --cap nhat ban tin
-ALTER PROC BanTin_Update(
+CREATE PROC BanTin_Update(
 	@tenBanTin nvarchar(50),
 	@IDBanTin int
 )

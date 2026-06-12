@@ -18,13 +18,33 @@ namespace website_tin_tuc
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            string userName = txtUserName.Text.Trim();
+            string passWord = txtPassWord.Text.Trim();
+
+            if (userName == "" || passWord == "")
+            {
+                lblThongBao.Text = "Bạn chưa nhập tên đăng nhập hoặc mật khẩu.";
+                return;
+            }
+
             string connStr = ConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString;
             BlogDataContext dt = new BlogDataContext(connStr);
-            var dl = dt.DangNhap_Search(txtUserName.Text, txtPassWord.Text);
-            int kt = dl.Count();
-            if (kt > 0)
+            DangNhap account = dt.DangNhaps.FirstOrDefault(x => x.userName == userName);
+            if (account != null && SiteSecurity.VerifyPassword(account.passWord, passWord))
             {
-                Session["admin"] = true;
+                string adminUserName = ConfigurationManager.AppSettings["AdminUserName"] ?? "admin";
+                bool isAdmin = string.Equals(userName, adminUserName, StringComparison.OrdinalIgnoreCase);
+
+                if (SiteSecurity.NeedsPasswordUpgrade(account.passWord))
+                {
+                    account.passWord = SiteSecurity.HashPassword(passWord);
+                    dt.SubmitChanges();
+                }
+
+                Session["userName"] = userName;
+                Session["isLoggedIn"] = true;
+                Session["admin"] = isAdmin;
+                Session["role"] = isAdmin ? "Admin" : "Member";
                 Response.Redirect("index.aspx");
             }
             else

@@ -14,6 +14,8 @@
                 <CKEditor:CKEditorControl ID="txtNoiDung" runat="server" ></CKEditor:CKEditorControl>
 
                 <br /><br />
+                <asp:Label ID="lblThongBao" runat="server" CssClass="form-message"></asp:Label>
+                <br /><br />
                 <asp:Button ID="btnInsert" runat="server" Text="Cập nhật" Width="150" Height="30" OnClick="btnInsert_Click1" />
             </div>
 </asp:Content>

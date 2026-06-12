@@ -17,18 +17,38 @@ namespace website_tin_tuc
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            string userName = txtUserName.Text.Trim();
+            string passWord = txtPassWord.Text.Trim();
+
             string connStr = ConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString;
             BlogDataContext dt = new BlogDataContext(connStr);
-            if (txtUserName.Text == "" || txtPassWord.Text == "") 
+            if (userName == "" || passWord == "") 
 			{
                 lblThongBao.Text = "Bạn không được bỏ trống tên truy cập và mật khẩu. Mời bạn nhập lại!";
                 txtUserName.Text = "";
                 txtPassWord.Text = "";
                 txtUserName.Focus();
             }
+            else if (userName.Length < 3)
+            {
+                lblThongBao.Text = "Tên đăng nhập phải có ít nhất 3 ký tự.";
+                txtUserName.Focus();
+            }
+            else if (passWord.Length < 6)
+            {
+                lblThongBao.Text = "Mật khẩu phải có ít nhất 6 ký tự.";
+                txtPassWord.Text = "";
+                txtPassWord.Focus();
+            }
+            else if (dt.DangNhaps.Any(x => x.userName == userName))
+            {
+                lblThongBao.Text = "Tên đăng nhập đã tồn tại. Mời bạn chọn tên khác!";
+                txtPassWord.Text = "";
+                txtUserName.Focus();
+            }
             else
             {
-                dt.DangNhap_Insert(txtUserName.Text, txtPassWord.Text);
+                dt.DangNhap_Insert(userName, SiteSecurity.HashPassword(passWord));
                 Response.Redirect("index.aspx");
             }    
 

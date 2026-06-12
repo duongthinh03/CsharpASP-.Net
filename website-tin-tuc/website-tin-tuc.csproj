@@ -77,9 +77,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPosts.aspx" />
+    <Content Include="BanTinManage.aspx" />
     <Content Include="bantin.aspx" />
     <Content Include="chitiet.aspx" />
     <Content Include="ChiTietAdd.aspx" />
+    <Content Include="ChiTietEdit.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\bin\CKEditor.NET.dll" />
     <Content Include="ckeditor\CHANGES.html" />
@@ -755,6 +758,7 @@
     <Content Include="ckfinder\userfiles\images\banner-doanhnghiep.jpg" />
     <Content Include="ckfinder\userfiles\_thumbs\Images\banner-doanhnghiep.jpg" />
     <Content Include="dangky.aspx" />
+    <Content Include="DatabaseStoredProcedures.sql" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="jquery-1.11.3.min.js" />
@@ -764,6 +768,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPosts.aspx.cs">
+      <DependentUpon>AdminPosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPosts.aspx.designer.cs">
+      <DependentUpon>AdminPosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BanTinManage.aspx.cs">
+      <DependentUpon>BanTinManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BanTinManage.aspx.designer.cs">
+      <DependentUpon>BanTinManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="bantin.aspx.cs">
       <DependentUpon>bantin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -789,6 +807,13 @@
     </Compile>
     <Compile Include="ChiTietAdd.aspx.designer.cs">
       <DependentUpon>ChiTietAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietEdit.aspx.cs">
+      <DependentUpon>ChiTietEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChiTietEdit.aspx.designer.cs">
+      <DependentUpon>ChiTietEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="dangky.aspx.cs">
       <DependentUpon>dangky.aspx</DependentUpon>
@@ -828,6 +853,7 @@
     <Compile Include="logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SiteSecurity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
