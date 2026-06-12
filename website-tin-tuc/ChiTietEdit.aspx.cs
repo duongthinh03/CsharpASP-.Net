@@ -42,7 +42,7 @@ namespace website_tin_tuc
         {
             if (string.IsNullOrWhiteSpace(txtTieuDe.Text) || string.IsNullOrWhiteSpace(txtNoiDung.Text))
             {
-                lblThongBao.Text = "B\u1ea1n c\u1ea7n nh\u1eadp \u0111\u1ea7y \u0111\u1ee7 ti\u00eau \u0111\u1ec1 v\u00e0 n\u1ed9i dung.";
+                SetMessage("Bạn cần nhập đầy đủ tiêu đề và nội dung.", false);
                 return;
             }
 
@@ -58,18 +58,13 @@ namespace website_tin_tuc
             int idBanTin = 0;
             if (!int.TryParse(drBanTin.SelectedValue, out idBanTin))
             {
-                lblThongBao.Text = "B\u1ea1n c\u1ea7n ch\u1ecdn danh m\u1ee5c.";
+                SetMessage("Bạn cần chọn danh mục.", false);
                 return;
             }
 
-            dt.ExecuteCommand(
-                "EXEC dbo.ChiTiet_Update @p0, @p1, @p2, @p3",
-                txtTieuDe.Text.Trim(),
-                txtNoiDung.Text,
-                PostId,
-                idBanTin);
+            dt.ChiTiet_Update(txtTieuDe.Text.Trim(), txtNoiDung.Text, PostId, idBanTin);
 
-            Response.Redirect("AdminPosts.aspx");
+            Response.Redirect("AdminPosts.aspx?msg=updated");
         }
 
         private void LoadCategories()
@@ -99,6 +94,12 @@ namespace website_tin_tuc
             {
                 drBanTin.SelectedValue = post.IDBanTin.Value.ToString();
             }
+        }
+
+        private void SetMessage(string message, bool success)
+        {
+            lblThongBao.Text = message;
+            lblThongBao.CssClass = success ? "form-message success" : "form-message error";
         }
     }
 }

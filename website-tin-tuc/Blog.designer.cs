@@ -196,9 +196,9 @@ namespace website_tin_tuc
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ChiTiet_Update")]
-		public int ChiTiet_Update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string tieuDe, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string noiDung, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		public int ChiTiet_Update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string tieuDe, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string noiDung, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDBanTin", DbType="Int")] System.Nullable<int> iDBanTin)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tieuDe, noiDung, iD);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tieuDe, noiDung, iD, iDBanTin);
 			return ((int)(result.ReturnValue));
 		}
 		

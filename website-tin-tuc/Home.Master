@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
-    <title>Blog ASP .Net</title>
-    <link href="theme/Styles.css?v=20260612-11" rel="stylesheet" />
+    <title>Tech Notes</title>
+    <link href="theme/Styles.css?v=20260612-13" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -14,6 +14,7 @@
             <div id="menu">
                 <ul>
                     <li><a href="index.aspx">Trang chủ</a> </li>
+                    <li><a href="About.aspx">Giới thiệu</a> </li>
                     <asp:Repeater ID="rpBanTin" runat="server">
                         <ItemTemplate>
                             <li><a href="bantin.aspx?idbantin=<%# Eval("IDBanTin") %>"><%# Eval("tenBanTin") %></a></li>
@@ -105,11 +106,49 @@
     </div>
         <div id="footer">
             <div id="ndfooter">
-                CopyRight: Dương Quang Thịnh. <br />
+                &copy; Dương Quang Thịnh. <br />
                 Liên hệ trực tuyến qua Email: dqthinhdq03@gmail.com
                 Với Hotline: 0869641679
             </div>
         </div>
+        <div id="deleteConfirmOverlay" class="confirm-overlay">
+            <div class="confirm-dialog">
+                <h2>Xác nhận xóa</h2>
+                <p id="deleteConfirmMessage">Bạn chắc chắn muốn xóa mục này?</p>
+                <div class="confirm-actions">
+                    <button type="button" class="confirm-cancel" onclick="closeDeleteConfirm()">Hủy</button>
+                    <button type="button" class="confirm-delete" onclick="confirmDeleteAction()">Xóa</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            var pendingDeleteElement = null;
+
+            function showDeleteConfirm(element, message) {
+                if (element.getAttribute("data-confirmed") === "1") {
+                    element.removeAttribute("data-confirmed");
+                    return true;
+                }
+
+                pendingDeleteElement = element;
+                document.getElementById("deleteConfirmMessage").innerText = message || "Bạn chắc chắn muốn xóa mục này?";
+                document.getElementById("deleteConfirmOverlay").className = "confirm-overlay is-open";
+                return false;
+            }
+
+            function closeDeleteConfirm() {
+                pendingDeleteElement = null;
+                document.getElementById("deleteConfirmOverlay").className = "confirm-overlay";
+            }
+
+            function confirmDeleteAction() {
+                if (pendingDeleteElement) {
+                    pendingDeleteElement.setAttribute("data-confirmed", "1");
+                    pendingDeleteElement.click();
+                }
+                closeDeleteConfirm();
+            }
+        </script>
     </form>
 </body>
 </html>

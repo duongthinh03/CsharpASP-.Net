@@ -77,6 +77,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
     <Content Include="AdminPosts.aspx" />
     <Content Include="BanTinManage.aspx" />
     <Content Include="bantin.aspx" />
@@ -768,6 +769,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminPosts.aspx.cs">
       <DependentUpon>AdminPosts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

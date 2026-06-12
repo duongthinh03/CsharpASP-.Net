@@ -26,7 +26,7 @@
                     <div class="admin-row-actions">
                         <a class="row-button view" href="chitiet.aspx?idbantin=<%# Eval("IDBanTin") %>&id=<%# Eval("ID") %>">Xem</a>
                         <a class="row-button edit" href="ChiTietEdit.aspx?id=<%# Eval("ID") %>">S&#7917;a</a>
-                        <asp:LinkButton ID="btnDelete" runat="server" CssClass="row-button delete" CommandName="DeletePost" CommandArgument='<%# Eval("ID") %>' OnClientClick="return confirm('Ban chac chan muon xoa bai viet nay?');">X&oacute;a</asp:LinkButton>
+                        <asp:LinkButton ID="btnDelete" runat="server" CssClass="row-button delete" CommandName="DeletePost" CommandArgument='<%# Eval("ID") %>' OnClientClick="return showDeleteConfirm(this, 'Xóa bài viết này?');">X&oacute;a</asp:LinkButton>
                     </div>
                 </div>
             </ItemTemplate>

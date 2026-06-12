@@ -1,4 +1,4 @@
-USE [Blog]
+USE [Blog];
 GO
 
 CREATE OR ALTER PROCEDURE [dbo].[BanTin_Insert]

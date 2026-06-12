@@ -33,14 +33,14 @@ namespace website_tin_tuc
         {
             if (string.IsNullOrWhiteSpace(txtTieuDe.Text) || string.IsNullOrWhiteSpace(txtNoiDung.Text))
             {
-                lblThongBao.Text = "Bạn cần nhập đầy đủ tiêu đề và nội dung.";
+                SetMessage("Bạn cần nhập đầy đủ tiêu đề và nội dung.", false);
                 return;
             }
 
             int idBanTin = 0;
             if (!int.TryParse(drBanTin.SelectedValue, out idBanTin))
             {
-                lblThongBao.Text = "Bạn cần tạo danh mục trước khi thêm bài viết.";
+                SetMessage("Bạn cần tạo danh mục trước khi thêm bài viết.", false);
                 return;
             }
 
@@ -50,7 +50,7 @@ namespace website_tin_tuc
 
             txtTieuDe.Text = "";
             txtNoiDung.Text = "";
-            lblThongBao.Text = "Đã thêm bài viết. Bạn có thể nhập tiếp bài mới.";
+            SetMessage("Đã thêm bài viết. Bạn có thể nhập tiếp bài mới.", true);
             FocusTitleBox();
         }
 
@@ -62,6 +62,12 @@ namespace website_tin_tuc
                 "focusTitle",
                 "window.setTimeout(function(){var el=document.getElementById('" + txtTieuDe.ClientID + "');if(el){el.focus();}},0);",
                 true);
+        }
+
+        private void SetMessage(string message, bool success)
+        {
+            lblThongBao.Text = message;
+            lblThongBao.CssClass = success ? "form-message success" : "form-message error";
         }
     }
 }

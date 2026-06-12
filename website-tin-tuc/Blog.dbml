@@ -134,6 +134,7 @@
     <Parameter Name="tieuDe" Type="System.String" DbType="NVarChar(200)" />
     <Parameter Name="noiDung" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDBanTin" Parameter="iDBanTin" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.DangNhap_Delete" Method="DangNhap_Delete">

@@ -3,8 +3,6 @@ GO
 
 BEGIN TRANSACTION;
 
--- Doi danh muc cu sang bo danh muc blog cong nghe.
--- Luu y: tenBanTin chi luu ten sach, khong luu so thu tu 01/02/03.
 UPDATE dbo.BanTin SET tenBanTin = N'Lập trình Web' WHERE IDBanTin = 1;
 UPDATE dbo.BanTin SET tenBanTin = N'Backend' WHERE IDBanTin = 2;
 UPDATE dbo.BanTin SET tenBanTin = N'Database' WHERE IDBanTin = 3;
@@ -35,7 +33,6 @@ ELSE
 
 SET IDENTITY_INSERT dbo.BanTin OFF;
 
--- Phan lai bai viet hien co theo tieu de.
 UPDATE dbo.ChiTiet
 SET IDBanTin = 1
 WHERE TieuDe LIKE N'%ASP.NET%'

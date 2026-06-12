@@ -24,6 +24,7 @@ namespace website_tin_tuc
             {
                 string keyword = (Request["q"] ?? "").Trim();
                 txtSearch.Text = keyword;
+                ShowPageMessage();
                 LoadPosts(keyword, GetCurrentPage());
             }
         }
@@ -41,11 +42,11 @@ namespace website_tin_tuc
                     if (exists)
                     {
                         dt.ChiTiet_Delete(id);
-                        lblThongBao.Text = "\u0110\u00e3 x\u00f3a b\u00e0i vi\u1ebft.";
+                        SetMessage("Đã xóa bài viết.", true);
                     }
                     else
                     {
-                        lblThongBao.Text = "Kh\u00f4ng t\u00ecm th\u1ea5y b\u00e0i vi\u1ebft.";
+                        SetMessage("Không tìm thấy bài viết.", false);
                     }
                     LoadPosts(txtSearch.Text, GetCurrentPage());
                 }
@@ -153,6 +154,25 @@ namespace website_tin_tuc
                 "focusSearch",
                 "window.setTimeout(function(){var el=document.getElementById('" + txtSearch.ClientID + "');if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}},0);",
                 true);
+        }
+
+        private void ShowPageMessage()
+        {
+            string msg = Request["msg"];
+            if (msg == "updated")
+            {
+                SetMessage("Đã lưu thay đổi bài viết.", true);
+            }
+            else if (msg == "added")
+            {
+                SetMessage("Đã thêm bài viết.", true);
+            }
+        }
+
+        private void SetMessage(string message, bool success)
+        {
+            lblThongBao.Text = message;
+            lblThongBao.CssClass = success ? "form-message success" : "form-message error";
         }
     }
 }

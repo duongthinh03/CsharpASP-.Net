@@ -27,7 +27,7 @@ namespace website_tin_tuc
             string tenBanTin = txtTenBanTin.Text.Trim();
             if (tenBanTin == "")
             {
-                lblThongBao.Text = "B\u1ea1n c\u1ea7n nh\u1eadp t\u00ean danh m\u1ee5c.";
+                SetMessage("Bạn cần nhập tên danh mục.", false);
                 return;
             }
 
@@ -35,13 +35,13 @@ namespace website_tin_tuc
             BlogDataContext dt = new BlogDataContext(connStr);
             if (dt.BanTins.Any(x => x.tenBanTin == tenBanTin))
             {
-                lblThongBao.Text = "Danh m\u1ee5c n\u00e0y \u0111\u00e3 t\u1ed3n t\u1ea1i.";
+                SetMessage("Danh mục này đã tồn tại.", false);
                 return;
             }
 
             dt.BanTin_Insert(tenBanTin);
             txtTenBanTin.Text = "";
-            lblThongBao.Text = "\u0110\u00e3 th\u00eam danh m\u1ee5c.";
+            SetMessage("Đã thêm danh mục.", true);
             LoadCategories();
         }
 
@@ -62,38 +62,38 @@ namespace website_tin_tuc
                 string tenBanTin = txtEdit.Text.Trim();
                 if (tenBanTin == "")
                 {
-                    lblThongBao.Text = "T\u00ean danh m\u1ee5c kh\u00f4ng \u0111\u01b0\u1ee3c b\u1ecf tr\u1ed1ng.";
+                    SetMessage("Tên danh mục không được bỏ trống.", false);
                     return;
                 }
 
                 bool exists = dt.BanTins.Any(x => x.IDBanTin == id);
                 if (!exists)
                 {
-                    lblThongBao.Text = "Kh\u00f4ng t\u00ecm th\u1ea5y danh m\u1ee5c.";
+                    SetMessage("Không tìm thấy danh mục.", false);
                     return;
                 }
 
                 dt.BanTin_Update(tenBanTin, id);
-                lblThongBao.Text = "\u0110\u00e3 c\u1eadp nh\u1eadt danh m\u1ee5c.";
+                SetMessage("Đã cập nhật danh mục.", true);
             }
             else if (e.CommandName == "DeleteCategory")
             {
                 bool hasPosts = dt.ChiTiets.Any(x => x.IDBanTin == id);
                 if (hasPosts)
                 {
-                    lblThongBao.Text = "Kh\u00f4ng th\u1ec3 x\u00f3a danh m\u1ee5c \u0111ang c\u00f3 b\u00e0i vi\u1ebft.";
+                    SetMessage("Không thể xóa danh mục đang có bài viết.", false);
                     return;
                 }
 
                 bool exists = dt.BanTins.Any(x => x.IDBanTin == id);
                 if (!exists)
                 {
-                    lblThongBao.Text = "Kh\u00f4ng t\u00ecm th\u1ea5y danh m\u1ee5c.";
+                    SetMessage("Không tìm thấy danh mục.", false);
                     return;
                 }
 
                 dt.BanTin_Delete(id);
-                lblThongBao.Text = "\u0110\u00e3 x\u00f3a danh m\u1ee5c.";
+                SetMessage("Đã xóa danh mục.", true);
             }
 
             LoadCategories();
@@ -105,6 +105,12 @@ namespace website_tin_tuc
             BlogDataContext dt = new BlogDataContext(connStr);
             rpBanTinManage.DataSource = dt.BanTins.OrderBy(x => x.tenBanTin).ToList();
             rpBanTinManage.DataBind();
+        }
+
+        private void SetMessage(string message, bool success)
+        {
+            lblThongBao.Text = message;
+            lblThongBao.CssClass = success ? "form-message success" : "form-message error";
         }
     }
 }

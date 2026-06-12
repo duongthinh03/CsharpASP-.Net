@@ -23,7 +23,7 @@
                     </div>
                     <div class="admin-row-actions">
                         <asp:LinkButton ID="btnUpdate" runat="server" CssClass="row-button edit" CommandName="UpdateCategory" CommandArgument='<%# Eval("IDBanTin") %>'>L&#432;u</asp:LinkButton>
-                        <asp:LinkButton ID="btnDelete" runat="server" CssClass="row-button delete" CommandName="DeleteCategory" CommandArgument='<%# Eval("IDBanTin") %>' OnClientClick="return confirm('Ban chac chan muon xoa danh muc nay?');">X&oacute;a</asp:LinkButton>
+                        <asp:LinkButton ID="btnDelete" runat="server" CssClass="row-button delete" CommandName="DeleteCategory" CommandArgument='<%# Eval("IDBanTin") %>' OnClientClick="return showDeleteConfirm(this, 'Xóa danh mục này?');">X&oacute;a</asp:LinkButton>
                     </div>
                 </div>
             </ItemTemplate>
